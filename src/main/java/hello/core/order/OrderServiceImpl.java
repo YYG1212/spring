@@ -6,10 +6,14 @@ import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+//@RequiredArgsConstructor
+//lombok 자동 생성자 생성 해주는 어노테이션
 public class OrderServiceImpl implements OrderService{
 
     //@Autowired 필드 주입
@@ -29,6 +33,7 @@ public class OrderServiceImpl implements OrderService{
 //    }
 
     //생성자 주입
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
